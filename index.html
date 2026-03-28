@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Оставь заявку</title>
+  <meta name="description" content="Простой сайт с формой заявки" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #f6f7fb;
+      color: #1f2937;
+      line-height: 1.5;
+    }
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    header {
+      padding: 20px 0;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+    }
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .nav-link {
+      color: #111827;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .hero {
+      padding: 72px 0 48px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      box-shadow: 0 12px 32px rgba(17, 24, 39, 0.06);
+    }
+    .hero-copy {
+      padding: 40px;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.05;
+    }
+    p.lead {
+      margin: 0 0 24px;
+      font-size: 18px;
+      color: #4b5563;
+      max-width: 640px;
+    }
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .benefit {
+      padding: 16px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      font-size: 14px;
+    }
+    .form-card {
+      padding: 28px;
+    }
+    .form-title {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+    .form-subtitle {
+      margin: 0 0 20px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+    form {
+      display: grid;
+      gap: 14px;
+    }
+    label {
+      display: grid;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    input, textarea, button {
+      font: inherit;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      background: #fff;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 16px 18px;
+      background: #111827;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.95;
+    }
+    .note {
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .section {
+      padding: 24px 0 72px;
+    }
+    .section h2 {
+      font-size: 28px;
+      margin: 0 0 18px;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .service {
+      padding: 24px;
+    }
+    footer {
+      border-top: 1px solid #e5e7eb;
+      background: #fff;
+      padding: 24px 0;
+      color: #6b7280;
+      font-size: 14px;
+    }
+    .success, .error {
+      display: none;
+      margin-top: 8px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+    .success { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    .error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+    @media (max-width: 900px) {
+      .hero-grid, .benefits, .services {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding-top: 32px;
+      }
+      .hero-copy {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-row">
+      <div class="logo">Мой первый сайт</div>
+      <a class="nav-link" href="#contact">Оставить заявку</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="card hero-copy">
+          <h1>Простой сайт, который собирает контакты клиентов</h1>
+          <p class="lead">
+            Это учебный лендинг. Его можно открыть в интернете, посмотреть с телефона и оставить контактные данные через форму.
+          </p>
+          <div class="benefits">
+            <div class="benefit">Понятная структура landing page</div>
+            <div class="benefit">Форма для сбора заявок</div>
+            <div class="benefit">Подходит для деплоя на Vercel</div>
+          </div>
+        </div>
+
+        <div class="card form-card" id="contact">
+          <h2 class="form-title">Оставь контакты</h2>
+          <p class="form-subtitle">Для учебного проекта подключается Formspree. Позже форму можно перевести на свой backend или Telegram.</p>
+
+          <form id="contactForm" action="https://formspree.io/f/mykbklpn" method="POST">
+            <label>
+              Имя
+              <input type="text" name="name" placeholder="Например, Александр" required />
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" placeholder="name@example.com" required />
+            </label>
+
+            <label>
+              Телефон
+              <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required />
+            </label>
+
+            <label>
+              Комментарий
+              <textarea name="message" placeholder="Кратко опиши запрос"></textarea>
+            </label>
+
+            <button type="submit">Отправить заявку</button>
+            <div class="success" id="successMessage">Спасибо. Форма отправлена.</div>
+            <div class="error" id="errorMessage">Не удалось отправить форму. Проверь настройки Formspree.</div>
+            <div class="note">Здесь позже можно добавить чекбокс согласия на обработку персональных данных.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Что здесь есть</h2>
+        <div class="services">
+          <div class="card service">
+            <strong>1. Заголовок и оффер</strong>
+            <p>Объясняет, зачем нужен сайт и что получит посетитель.</p>
+          </div>
+          <div class="card service">
+            <strong>2. Форма захвата</strong>
+            <p>Собирает имя, email, телефон и комментарий.</p>
+          </div>
+          <div class="card service">
+            <strong>3. Адаптивная верстка</strong>
+            <p>Сайт удобно открыть и на компьютере, и на смартфоне.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Учебный проект для изучения Git, GitHub и деплоя.</div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          successMessage.style.display = 'block';
+        } else {
+          errorMessage.style.display = 'block';
+        }
+      } catch (error) {
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
